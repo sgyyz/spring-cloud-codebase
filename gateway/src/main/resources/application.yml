@@ -1,0 +1,13 @@
+spring:
+  application.name: spring-cloud-gateway-service
+  cloud:
+    gateway:
+      routes:
+      - id: spring-cloud-web-service
+        uri: lb://spring-cloud-web-service:8080
+        predicates:
+        - Path=/web/v1/**
+        filters:
+        - StripPrefix=2
+
+server.port: 4000
