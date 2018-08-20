@@ -10,7 +10,8 @@
 		<module>discovery</module>
 		<module>web</module>
 		<module>gateway</module>
-	</modules>
+    <module>admin</module>
+  </modules>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-codebase</name>
