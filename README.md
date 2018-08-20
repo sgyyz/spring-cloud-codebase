@@ -4,6 +4,6 @@ And in the future we can based on this repository to build more applications.
 
 ### Spring boot and Spring Cloud versions
 |Module|Version|
-----------------
+-------|---------
 |Spring Boot| 2.0.4.RELEASE|
 |Spring Cloud| Finchley.SR1 | 
