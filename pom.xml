@@ -28,6 +28,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+    <dockerfile-maven-plugin.version>1.3.6</dockerfile-maven-plugin.version>
 	</properties>
 
 	<dependencyManagement>
@@ -41,4 +43,65 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>docker</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.spotify</groupId>
+              <artifactId>dockerfile-maven-plugin</artifactId>
+              <version>${dockerfile-maven-plugin.version}</version>
+              <executions>
+                <execution>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>build</goal>
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <repository>57blocks/${project.artifactId}</repository>
+                <tag>latest</tag>
+                <buildArgs>
+                  <BASE_NAME>${project.build.finalName}</BASE_NAME>
+                </buildArgs>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+    <profile>
+      <id>docker-tag</id>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>com.spotify</groupId>
+              <artifactId>dockerfile-maven-plugin</artifactId>
+              <version>${dockerfile-maven-plugin.version}</version>
+              <executions>
+                <execution>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>build</goal>
+                  </goals>
+                </execution>
+              </executions>
+              <configuration>
+                <repository>57blocks/${project.artifactId}</repository>
+                <tag>${project.version}</tag>
+                <buildArgs>
+                  <BASE_NAME>${project.build.finalName}</BASE_NAME>
+                </buildArgs>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+      </build>
+    </profile>
+  </profiles>
 </project>
