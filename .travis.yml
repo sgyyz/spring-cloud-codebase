@@ -5,4 +5,4 @@ services:
 language: java
 jdk:
   - openjdk8
-scirpt: mvn clean test
+scirpt: mvn clean package -Pdocker
