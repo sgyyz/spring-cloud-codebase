@@ -8,4 +8,4 @@ ENTRYPOINT exec java $JAVA_OPTS -jar /opt/service.jar $RUN_ARGS
 
 HEALTHCHECK --interval=10s --timeout=3s CMD curl -f http://localhost:9999/actuator/health || exit 1
 
-EXPOSE 8080
+EXPOSE 9999
