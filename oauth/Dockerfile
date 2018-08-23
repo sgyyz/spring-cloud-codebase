@@ -6,6 +6,6 @@ RUN chmod 755 /opt/$BASE_NAME.jar
 RUN ln -s /opt/$BASE_NAME.jar /opt/service.jar
 ENTRYPOINT exec java $JAVA_OPTS -jar /opt/service.jar $RUN_ARGS
 
-HEALTHCHECK --interval=10s --timeout=3s CMD curl -f http://localhost:8761/actuator/health || exit 1
+HEALTHCHECK --interval=10s --timeout=3s CMD curl -f http://localhost:8081/actuator/health || exit 1
 
-EXPOSE 8761
+EXPOSE 8081
