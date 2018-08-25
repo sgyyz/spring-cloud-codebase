@@ -1,0 +1,5 @@
+spring:
+  application.name: spring-cloud-oauth-service
+  profiles.active: local
+
+server.port: 8081

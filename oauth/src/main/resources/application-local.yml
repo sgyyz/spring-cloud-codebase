@@ -1,10 +1,5 @@
-spring.application.name: spring-cloud-discovery-service
-
-server.port: 8761
-
 eureka.client:
-  register-with-eureka: true
-  fetch-registry: false
+  enabled: false
 
 management:
   endpoints:

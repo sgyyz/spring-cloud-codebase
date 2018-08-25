@@ -1,5 +1,4 @@
 spring:
-  application.name: spring-cloud-gateway-service
   cloud:
     gateway:
       routes:
@@ -9,8 +8,6 @@ spring:
         - Path=/web/v1/**
         filters:
         - StripPrefix=2
-
-server.port: 4000
 
 management:
   endpoints:

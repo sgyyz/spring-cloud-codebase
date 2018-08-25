@@ -1,0 +1,6 @@
+spring:
+  application.name: spring-cloud-gateway-service
+  profiles.active: local
+
+server.port: 4000
+

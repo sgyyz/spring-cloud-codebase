@@ -1,6 +1,5 @@
-spring.application.name: spring-cloud-admin-service
-
-server.port: 9999
+eureka.client:
+  enabled: false
 
 management:
   endpoints:
