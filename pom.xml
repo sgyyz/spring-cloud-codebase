@@ -64,7 +64,7 @@
                 </execution>
               </executions>
               <configuration>
-                <repository>57blocks/${project.artifactId}</repository>
+                <repository>troy/${project.artifactId}</repository>
                 <tag>latest</tag>
                 <buildArgs>
                   <BASE_NAME>${project.build.finalName}</BASE_NAME>
@@ -93,7 +93,7 @@
                 </execution>
               </executions>
               <configuration>
-                <repository>57blocks/${project.artifactId}</repository>
+                <repository>troy/${project.artifactId}</repository>
                 <tag>${project.version}</tag>
                 <buildArgs>
                   <BASE_NAME>${project.build.finalName}</BASE_NAME>
