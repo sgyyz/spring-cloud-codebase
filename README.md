@@ -34,8 +34,19 @@ mvn clean install -Pdocker
 docker-compose up -d
 ```
 #### Test it
+##### Application Testing
 Once all modules run without any error, you can access `oauth` or `web` module through gateway(one stop service exposure place).
 Like
 ```
 GET http://localhost:4000/web/v1/test
+```
+##### Docker Status Checking
+You can check all images running status or watch the log separately.
+1. Check status in real time
+```
+watch docker ps
+```
+2. Tail running logs
+```
+docker logs -f [container_id]
 ```
