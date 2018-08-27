@@ -29,10 +29,24 @@ Start each module. `discovery` module should be started firstly, cause all other
 ```
 mvn clean install -Pdocker
 ```
-2. Run it through docker command or `docker-compose` command (Under development)
+2. Run it through docker command or `docker-compose` command. Change directory to `docker` folder and run the below command:
+```
+docker-compose up -d
+```
 #### Test it
-Once all modules run without any error, you can access `OAuth` or `web` module through gateway(one stop service exposure place).
+##### Application Testing
+Once all modules run without any error, you can access `oauth` or `web` module through gateway(one stop service exposure place).
 Like
 ```
 GET http://localhost:4000/web/v1/test
+```
+##### Docker Status Checking
+You can check all images running status or watch the log separately.
+1. Check status in real time
+```
+watch docker ps
+```
+2. Tail running logs
+```
+docker logs -f [container_id]
 ```
