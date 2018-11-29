@@ -18,7 +18,7 @@ parent-pom.xml(which include the spring boot and spring cloud parent)
   -- discovery
   -- gateway
   -- web
-  -- OAuth (Under development)
+  -- oauth
 ```
 
 ### How to run it?
