@@ -13,12 +13,13 @@ And in the future we can based on this repository to build more applications.
 In this demo project, it contains the standard spring cloud structure. As you can see
 the structure is:
 ```
-parent-pom.xml(which include the spring boot and spring cloud parent)
-  -- admin
-  -- discovery
-  -- gateway
-  -- web
-  -- oauth
+spring-cloud-codebase
+    ├── admin
+    ├── discovery
+    ├── docker
+    ├── gateway
+    ├── oauth
+    └── web
 ```
 
 ### How to run it?
