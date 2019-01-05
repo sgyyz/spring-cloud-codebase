@@ -1,5 +1,6 @@
 package com.troy.codebase.config;
 
+import com.netflix.loadbalancer.NoOpPing;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
@@ -21,12 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // @formatter:off
     auth.inMemoryAuthentication()
           .withUser("troy")
-          .password("pass1")
+          .password(passwordEncoder().encode("pass1"))
           .roles("USER")
         .and()
           .withUser("young")
-          .password("pass2")
-          .roles("USER", "ADMIN");
+          .password(passwordEncoder().encode("pass2"))
+          .roles("USER", "ADMIN")
+        .and()
+          .passwordEncoder(passwordEncoder());
     // @formatter:on
   }
 
@@ -48,18 +51,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // @formatter:on
   }
 
+
   @Override
   @Bean
   public AuthenticationManager authenticationManagerBean() throws Exception {
     return super.authenticationManagerBean();
   }
 
-  /**
-   * https://docs.spring.io/spring-security/site/docs/current/reference/htmlsingle/#core-services-password-encoding
-   * @return
-   */
   @Bean
   public PasswordEncoder passwordEncoder() {
-    return NoOpPasswordEncoder.getInstance();
+    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
   }
 }
